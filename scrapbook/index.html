@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f7f1e8">
+<title>Danley & Maria — Wedding Memories</title>
+<style>
+:root{--bg:#fbf7f1;--card:#fffdfa;--ink:#332d2a;--muted:#7c716b;--gold:#b9975b;--line:#e9ddd0;--rose:#a46d6f}
+*{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+.hero{min-height:52vh;display:grid;place-items:center;text-align:center;padding:48px 20px;background:radial-gradient(circle at 50% 15%,#fff 0,#fbf7f1 55%,#f1e6d8 100%)}
+.hero h1{font-family:Georgia,serif;font-size:clamp(44px,10vw,78px);font-weight:500;margin:0 0 8px}.date{letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-size:13px}
+.tag{font-family:Georgia,serif;font-style:italic;font-size:20px;color:var(--rose);margin:18px 0 26px}
+.wrap{max-width:980px;margin:auto;padding:28px 18px 70px}.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+button,.btn{border:0;border-radius:999px;padding:14px 20px;font-weight:700;font-size:15px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.primary{background:var(--ink);color:white}.secondary{background:white;color:var(--ink);border:1px solid var(--line)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:0 10px 30px rgba(55,45,40,.06);margin:18px 0}
+h2{font-family:Georgia,serif;font-weight:500;font-size:32px;margin:0 0 12px}.sub{color:var(--muted);line-height:1.6}
+label{display:block;font-size:13px;font-weight:800;margin:14px 0 7px}
+input,textarea,select{width:100%;border:1px solid var(--line);border-radius:14px;background:#fff;padding:13px;font:inherit;color:var(--ink)}
+textarea{min-height:92px;resize:vertical}.drop{border:2px dashed #d5c3ae;border-radius:18px;padding:24px;text-align:center;background:#fff}
+.preview{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}.preview img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:10px}
+.progress{height:8px;background:#eee4d9;border-radius:99px;overflow:hidden;margin-top:14px;display:none}.bar{height:100%;width:0;background:var(--gold)}
+.notice{display:none;padding:12px 14px;border-radius:12px;margin-top:12px;background:#f0eadf;color:#514841}
+.gallery{columns:2 220px;column-gap:12px}.photo{break-inside:avoid;margin:0 0 12px;background:white;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+.photo img{width:100%;display:block;cursor:pointer}.meta{padding:11px 12px}.who{font-weight:800;font-size:13px}.msg{font-family:Georgia,serif;font-style:italic;color:#675e59;margin-top:4px;font-size:14px}
+.topbar{position:sticky;top:0;z-index:9;background:rgba(251,247,241,.88);backdrop-filter:blur(12px);border-bottom:1px solid rgba(220,205,191,.65)}
+.topbar .inner{max-width:980px;margin:auto;padding:12px 18px;display:flex;justify-content:space-between;align-items:center}.brand{font-family:Georgia,serif;font-weight:700}
+.small{font-size:12px;color:var(--muted)} .empty{text-align:center;color:var(--muted);padding:34px}
+.modal{position:fixed;inset:0;background:rgba(20,17,15,.88);display:none;align-items:center;justify-content:center;z-index:99;padding:18px}.modal img{max-width:95vw;max-height:85vh;border-radius:12px}.close{position:absolute;right:18px;top:18px;background:#fff;color:#222}
+footer{text-align:center;color:var(--muted);padding:34px 18px 50px;font-size:13px}
+@media(max-width:560px){.hero{min-height:44vh}.preview{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="inner"><div class="brand">D ♥ M</div><div class="small">August 28, 2026</div></div></div>
+<section class="hero"><div><div class="date">Our Wedding Memories</div><h1>Danley & Maria</h1><div class="tag">Capture. Share. Remember.</div><p class="sub">Help us preserve our wedding through your eyes.</p><div class="actions"><button class="primary" onclick="document.querySelector('#upload').scrollIntoView({behavior:'smooth'})">📷 Add Your Photos</button><button class="secondary" onclick="document.querySelector('#memories').scrollIntoView({behavior:'smooth'})">💍 View Memories</button></div></div></section>
+<main class="wrap"><section id="upload" class="card"><h2>Add to our scrapbook</h2><p class="sub">Take a photo now or choose wedding photos from your phone. No account needed.</p><label>Your name</label><input id="guestName" placeholder="e.g. Alyssa"><label>Wedding moment</label><select id="category"><option value="Wedding Memory">Wedding Memory</option><option>Ceremony</option><option>Couple</option><option>Family</option><option>Reception</option><option>Candid Moment</option><option>Guests</option><option>Photo Booth</option></select><label>Photos</label><div class="drop"><input id="photos" type="file" accept="image/*" capture="environment" multiple style="display:none"><button class="secondary" type="button" onclick="document.getElementById('photos').click()">📷 Take or Choose Photos</button><div class="small" style="margin-top:8px">Up to 10 photos at a time</div><div id="preview" class="preview"></div></div><label>Message for Danley & Maria <span class="small">(optional)</span></label><textarea id="message" maxlength="300" placeholder="Congratulations! Wishing you a lifetime of happiness. ❤️"></textarea><button id="submitBtn" class="primary" style="margin-top:16px;width:100%;justify-content:center" onclick="uploadAll()">💌 Add to Their Scrapbook</button><div class="progress" id="progress"><div class="bar" id="bar"></div></div><div class="notice" id="notice"></div></section><section id="memories"><h2 style="margin-top:42px">Our Wedding Memories</h2><p class="sub">Photos shared by our family and friends.</p><div id="gallery" class="gallery"><div class="empty">Loading memories…</div></div></section></main>
+<div class="modal" id="modal" onclick="closeModal(event)"><button class="close" onclick="document.getElementById('modal').style.display='none'">✕</button><img id="modalImg" alt="Wedding memory"></div><footer>Made with love for Danley & Maria • August 28, 2026</footer>
+<script>
+const API_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+const $ = id => document.getElementById(id);
+$('photos').addEventListener('change', () => { const files = [...$('photos').files].slice(0,10); $('preview').innerHTML = ''; files.forEach(f => { const img=document.createElement('img'); img.src=URL.createObjectURL(f); $('preview').appendChild(img); }); });
+function dataUrl(file){return new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(file);});}
+async function uploadAll(){if(API_URL.startsWith("PASTE_")) return showNotice("Setup needed: connect the Google Apps Script backend first.");const files=[...$('photos').files].slice(0,10);if(!files.length) return showNotice("Please choose at least one photo.");const btn=$('submitBtn');btn.disabled=true;$('progress').style.display='block';$('bar').style.width='6%';try{for(let i=0;i<files.length;i++){const f=files[i];if(f.size>15*1024*1024)throw new Error(`${f.name} is larger than 15 MB.`);const payload={action:"upload",guestName:$('guestName').value.trim()||"Wedding Guest",message:$('message').value.trim(),category:$('category').value,filename:f.name,mimeType:f.type||"image/jpeg",image:await dataUrl(f)};const res=await fetch(API_URL,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});const out=await res.json();if(!out.ok)throw new Error(out.error||"Upload failed");$('bar').style.width=`${Math.round(((i+1)/files.length)*100)}%`;}showNotice("Thank you! ❤️ Your memories were added to Danley & Maria's scrapbook.");$('photos').value='';$('preview').innerHTML='';$('message').value='';await loadGallery();}catch(e){showNotice("We couldn't upload your photo. "+e.message);}finally{btn.disabled=false;setTimeout(()=>{$('progress').style.display='none'},1000)}}
+function showNotice(t){$('notice').textContent=t;$('notice').style.display='block'}
+async function loadGallery(){const g=$('gallery');if(API_URL.startsWith("PASTE_")){g.innerHTML='<div class="empty">The shared gallery will appear here after the backend is connected.</div>';return}try{const res=await fetch(API_URL+"?action=gallery");const out=await res.json();if(!out.ok)throw new Error(out.error||"Could not load gallery");const items=(out.items||[]).filter(x=>x.status==="approved");if(!items.length){g.innerHTML='<div class="empty">Be the first to share a wedding memory. ❤️</div>';return}g.innerHTML=items.map(x=>`<article class="photo"><img loading="lazy" src="${escAttr(x.imageUrl)}" alt="Wedding memory" onclick="openPhoto('${escAttr(x.imageUrl)}')"><div class="meta"><div class="who">Captured by ${esc(x.guestName||"Wedding Guest")}</div>${x.message?`<div class="msg">“${esc(x.message)}”</div>`:""}</div></article>`).join("");}catch(e){g.innerHTML=`<div class="empty">Could not load gallery. ${esc(e.message)}</div>`}}
+function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}function escAttr(s){return esc(s)}function openPhoto(url){$('modalImg').src=url;$('modal').style.display='flex'}function closeModal(e){if(e.target.id==="modal")$('modal').style.display='none'}loadGallery();
+</script></body></html>
