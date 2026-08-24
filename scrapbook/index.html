@@ -6,60 +6,69 @@
 <meta name="theme-color" content="#f6efe4">
 <title>Danley & Maria — Share Your Wedding Photos</title>
 <style>
-:root{--cream:#fffaf2;--cream2:#f2e7d7;--ink:#332b27;--muted:#7c7068;--navy:#183153;--gold:#b79153;--rose:#a76d73;--line:#e2d4c3;--ok:#315a43}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:radial-gradient(circle at 50% 10%,#fff 0,#f8f1e7 48%,#e5d7c5 100%)}
-main{min-height:100vh;display:grid;place-items:center;padding:24px 16px}.card{width:min(560px,100%);background:rgba(255,250,242,.96);border:1px solid var(--line);border-radius:30px;padding:28px 22px;box-shadow:0 24px 60px rgba(69,52,40,.13);text-align:center}
-.monogram{width:74px;height:74px;margin:0 auto 15px;border:1px solid #d6c4ad;border-radius:50%;display:grid;place-items:center;font:600 28px Georgia,serif;color:var(--rose);background:#fffdf9}.date{font-size:12px;font-weight:800;letter-spacing:.2em;color:var(--gold);text-transform:uppercase}.names{font:500 clamp(42px,12vw,68px)/.98 Georgia,serif;margin:12px 0 7px}.subtitle{font:italic 20px Georgia,serif;color:var(--rose);margin-bottom:12px}.intro{color:var(--muted);line-height:1.6;margin:0 auto 24px;max-width:420px}
-.pick{width:100%;border:0;border-radius:18px;padding:18px 20px;background:var(--navy);color:white;font-weight:850;font-size:17px;cursor:pointer}.pick:active{transform:scale(.99)}.hint{font-size:13px;color:var(--muted);margin:10px 0 0}.preview{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}.preview img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;border:1px solid var(--line)}
-.upload{display:none;width:100%;border:0;border-radius:18px;padding:17px 20px;background:var(--gold);color:#fff;font-weight:850;font-size:16px;margin-top:14px;cursor:pointer}.upload:disabled{opacity:.5}.progress{display:none;margin-top:16px;height:9px;border-radius:999px;background:#e8ddcf;overflow:hidden}.bar{height:100%;width:0;background:var(--gold);transition:width .2s}.status{display:none;margin-top:16px;padding:15px 16px;border-radius:16px;line-height:1.45;text-align:left;background:#f0e7da;color:#4e453f}.success{background:#e7f1ea;color:var(--ok);text-align:center;font-weight:750}.again{display:none;width:100%;border:1px solid var(--line);border-radius:18px;padding:15px 20px;background:#fff;color:var(--ink);font-weight:800;font-size:15px;margin-top:12px;cursor:pointer}.footer{margin-top:22px;font-size:12px;color:#8b8179}.heart{color:var(--rose)}
-@media(max-width:480px){main{padding:14px}.card{padding:25px 17px;border-radius:24px}.preview{grid-template-columns:repeat(2,1fr)}.names{font-size:48px}}
+:root{--cream:#fffaf2;--ink:#332b27;--muted:#7c7068;--navy:#183153;--gold:#b79153;--rose:#a76d73;--line:#e2d4c3;--ok:#315a43}*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:radial-gradient(circle at 50% 10%,#fff 0,#f8f1e7 48%,#e5d7c5 100%)}main{min-height:100vh;display:grid;place-items:center;padding:24px 16px}.card{width:min(560px,100%);background:rgba(255,250,242,.96);border:1px solid var(--line);border-radius:30px;padding:28px 22px;box-shadow:0 24px 60px rgba(69,52,40,.13);text-align:center}.monogram{width:74px;height:74px;margin:0 auto 15px;border:1px solid #d6c4ad;border-radius:50%;display:grid;place-items:center;font:600 28px Georgia,serif;color:var(--rose);background:#fffdf9}.date{font-size:12px;font-weight:800;letter-spacing:.2em;color:var(--gold);text-transform:uppercase}.names{font:500 clamp(42px,12vw,68px)/.98 Georgia,serif;margin:12px 0 7px}.subtitle{font:italic 20px Georgia,serif;color:var(--rose);margin-bottom:12px}.intro{color:var(--muted);line-height:1.6;margin:0 auto 24px;max-width:420px}.pick{width:100%;border:0;border-radius:18px;padding:18px 20px;background:var(--navy);color:#fff;font-weight:850;font-size:17px;cursor:pointer}.hint{font-size:13px;color:var(--muted);margin:10px 0 0}.preview{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}.preview img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;border:1px solid var(--line)}.upload{display:none;width:100%;border:0;border-radius:18px;padding:17px 20px;background:var(--gold);color:#fff;font-weight:850;font-size:16px;margin-top:14px;cursor:pointer}.upload:disabled,.pick:disabled{opacity:.5}.progress{display:none;margin-top:16px;height:9px;border-radius:999px;background:#e8ddcf;overflow:hidden}.bar{height:100%;width:0;background:var(--gold);transition:width .2s}.status{display:none;margin-top:16px;padding:15px 16px;border-radius:16px;line-height:1.45;text-align:left;background:#f0e7da;color:#4e453f}.success{background:#e7f1ea;color:var(--ok);text-align:center;font-weight:750}.again{display:none;width:100%;border:1px solid var(--line);border-radius:18px;padding:15px 20px;background:#fff;color:var(--ink);font-weight:800;font-size:15px;margin-top:12px;cursor:pointer}.footer{margin-top:22px;font-size:12px;color:#8b8179}.heart{color:var(--rose)}@media(max-width:480px){main{padding:14px}.card{padding:25px 17px;border-radius:24px}.preview{grid-template-columns:repeat(2,1fr)}.names{font-size:48px}}
 </style>
 </head>
 <body>
-<main>
-<section class="card">
-  <div class="monogram">D♡M</div>
-  <div class="date">August 28, 2026</div>
-  <h1 class="names">Danley <span class="heart">&</span> Maria</h1>
-  <div class="subtitle">Share your wedding photos</div>
-  <p class="intro">Captured a beautiful moment today? Add your photos to Danley & Maria’s wedding memories. No login, name, message, or account needed.</p>
-
-  <input id="photos" type="file" accept="image/*" multiple hidden>
-  <button id="pickBtn" class="pick" onclick="photos.click()">📷 Choose or Take Photos</button>
-  <p class="hint">Select up to 10 photos at a time.</p>
-
-  <div id="preview" class="preview"></div>
-  <button id="uploadBtn" class="upload" onclick="uploadAll()">Upload Wedding Photos</button>
-  <div id="progress" class="progress"><div id="bar" class="bar"></div></div>
-  <div id="status" class="status"></div>
-  <button id="againBtn" class="again" onclick="resetUpload()">＋ Upload More Photos</button>
-
-  <div class="footer">Thank you for helping preserve their wedding day <span class="heart">♥</span></div>
-</section>
-</main>
-<script src="cloudinary-config.js"></script>
+<main><section class="card">
+<div class="monogram">D♡M</div>
+<div class="date">August 28, 2026</div>
+<h1 class="names">Danley <span class="heart">&</span> Maria</h1>
+<div class="subtitle">Share your wedding photos</div>
+<p class="intro">Captured a beautiful moment today? Add your photos to Danley & Maria’s wedding memories. No login, name, message, or account needed.</p>
+<input id="photos" type="file" accept="image/*" multiple hidden>
+<button id="pickBtn" class="pick" onclick="photos.click()">📷 Choose or Take Photos</button>
+<p class="hint">Select up to 10 photos at a time.</p>
+<div id="preview" class="preview"></div>
+<button id="uploadBtn" class="upload" onclick="uploadAll()">Upload Wedding Photos</button>
+<div id="progress" class="progress"><div id="bar" class="bar"></div></div>
+<div id="status" class="status"></div>
+<button id="againBtn" class="again" onclick="resetUpload()">＋ Upload More Photos</button>
+<div class="footer">Thank you for helping preserve their wedding day <span class="heart">♥</span></div>
+</section></main>
+<script src="google-drive-config.js"></script>
 <script>
-const C=window.WEDDING_CLOUDINARY||{};
+const G=window.WEDDING_GOOGLE_DRIVE||{};
 const $=id=>document.getElementById(id);
-const configured=()=>C.cloudName&&!String(C.cloudName).startsWith('PASTE_')&&C.uploadPreset&&!String(C.uploadPreset).startsWith('PASTE_');
+const configured=()=>/^https:\/\/script\.google\.com\/macros\/s\/.+\/exec(?:\?.*)?$/.test(String(G.scriptUrl||''));
 let selected=[];
 
 function renderSelected(){
-  $('preview').innerHTML=selected.map(f=>`<img src="${URL.createObjectURL(f)}" alt="Selected wedding photo">`).join('');
+  $('preview').innerHTML='';
+  selected.forEach(f=>{const img=document.createElement('img');img.src=URL.createObjectURL(f);img.alt='Selected wedding photo';$('preview').appendChild(img)});
   $('uploadBtn').style.display=selected.length?'block':'none';
   $('againBtn').style.display='none';
 }
+$('photos').addEventListener('change',()=>{selected=[...$('photos').files].slice(0,10);renderSelected();$('status').style.display='none'});
+function showStatus(text,success=false){$('status').textContent=text;$('status').className='status'+(success?' success':'');$('status').style.display='block'}
+function delay(ms){return new Promise(r=>setTimeout(r,ms))}
+function fileToBase64(file){return new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(String(r.result).split(',')[1]||'');r.onerror=()=>reject(r.error);r.readAsDataURL(file)})}
+function uid(){return Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,10)}
 
-$('photos').addEventListener('change',()=>{
-  selected=[...$('photos').files].slice(0,10);
-  renderSelected();
-  $('status').style.display='none';
-});
+function checkStatus(id){
+  return new Promise(resolve=>{
+    const cb='__weddingCb_'+Math.random().toString(36).slice(2);
+    const s=document.createElement('script');
+    let done=false;
+    const finish=v=>{if(done)return;done=true;clearTimeout(timer);delete window[cb];s.remove();resolve(!!v)};
+    window[cb]=data=>finish(data&&data.ok);
+    s.onerror=()=>finish(false);
+    s.src=G.scriptUrl+'?action=status&id='+encodeURIComponent(id)+'&callback='+encodeURIComponent(cb)+'&t='+Date.now();
+    document.head.appendChild(s);
+    const timer=setTimeout(()=>finish(false),3500);
+  });
+}
 
-function showStatus(text,success=false){
-  $('status').textContent=text;
-  $('status').className='status'+(success?' success':'');
-  $('status').style.display='block';
+async function uploadOne(file){
+  const id=uid();
+  const base64=await fileToBase64(file);
+  const body=new URLSearchParams({action:'upload',uploadId:id,fileName:file.name||('wedding-photo-'+Date.now()+'.jpg'),mimeType:file.type||'image/jpeg',base64});
+  await fetch(G.scriptUrl,{method:'POST',mode:'no-cors',body});
+  for(let attempt=0;attempt<7;attempt++){
+    await delay(650+attempt*250);
+    if(await checkStatus(id)) return true;
+  }
+  throw new Error('Google Drive did not confirm the upload. Make sure the Apps Script web app access is set to “Anyone”.');
 }
 
 function openDB(){return new Promise((resolve,reject)=>{const req=indexedDB.open('danley-maria-wedding',1);req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains('booth'))req.result.createObjectStore('booth')};req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)})}
@@ -68,65 +77,23 @@ async function loadBoothPhoto(){
   try{
     const db=await openDB();
     const blob=await new Promise((resolve,reject)=>{const tx=db.transaction('booth','readonly');const req=tx.objectStore('booth').get('latest');req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)});
-    if(blob){
-      selected=[new File([blob],'danley-maria-photo-booth.jpg',{type:blob.type||'image/jpeg'})];
-      renderSelected();
-      showStatus('Your Photo Booth picture is ready. Tap “Upload Wedding Photos” to add it to Danley & Maria’s memories.');
-      const tx=db.transaction('booth','readwrite');tx.objectStore('booth').delete('latest');
-    } else showStatus('The Photo Booth picture could not be found. Choose the saved photo from your phone instead.');
-    db.close();
-    history.replaceState({},'',location.pathname);
+    if(blob){selected=[new File([blob],'danley-maria-photo-booth.jpg',{type:blob.type||'image/jpeg'})];renderSelected();showStatus('Your Photo Booth picture is ready. Tap “Upload Wedding Photos” to add it to Danley & Maria’s memories.');const tx=db.transaction('booth','readwrite');tx.objectStore('booth').delete('latest')}
+    else showStatus('The Photo Booth picture could not be found. Choose the saved photo from your phone instead.');
+    db.close();history.replaceState({},'',location.pathname);
   }catch(e){showStatus('Could not load the Photo Booth picture automatically. Choose the saved photo from your phone instead.')}
 }
 
 async function uploadAll(){
-  if(!configured()) return showStatus('Photo uploading is not active yet because the Cloudinary account still needs to be connected.');
+  if(!configured()) return showStatus('Google Drive upload needs one final free setup step. Danley or Maria must deploy the included Google Apps Script once, then its Web App URL is connected here.');
   if(!selected.length) return showStatus('Please choose at least one photo.');
-  for(const f of selected){
-    if(!String(f.type).startsWith('image/')) return showStatus('Please choose image files only.');
-    if(f.size>15*1024*1024) return showStatus(`${f.name} is larger than 15 MB.`);
-  }
-  $('uploadBtn').disabled=true;
-  $('pickBtn').disabled=true;
-  $('progress').style.display='block';
-  $('bar').style.width='4%';
+  for(const f of selected){if(!String(f.type).startsWith('image/'))return showStatus('Please choose image files only.');if(f.size>15*1024*1024)return showStatus((f.name||'A photo')+' is larger than 15 MB.')}
+  $('uploadBtn').disabled=true;$('pickBtn').disabled=true;$('progress').style.display='block';$('bar').style.width='4%';
   try{
-    for(let i=0;i<selected.length;i++){
-      const fd=new FormData();
-      fd.append('file',selected[i]);
-      fd.append('upload_preset',C.uploadPreset);
-      fd.append('tags',`${C.tag},wedding_guest_upload`);
-      const r=await fetch(`https://api.cloudinary.com/v1_1/${encodeURIComponent(C.cloudName)}/image/upload`,{method:'POST',body:fd});
-      const o=await r.json();
-      if(!r.ok||o.error) throw new Error(o?.error?.message||'Upload failed');
-      $('bar').style.width=`${Math.round(((i+1)/selected.length)*100)}%`;
-    }
-    $('preview').innerHTML='';
-    $('uploadBtn').style.display='none';
-    $('pickBtn').style.display='none';
-    document.querySelector('.hint').style.display='none';
-    showStatus('Thank you! ❤️ Your photos have been added to Danley & Maria’s wedding memories.',true);
-    $('againBtn').style.display='block';
-    $('photos').value='';
-    selected=[];
-  }catch(e){
-    showStatus('We couldn’t upload the photos. '+e.message);
-  }finally{
-    $('uploadBtn').disabled=false;
-    $('pickBtn').disabled=false;
-    setTimeout(()=>{$('progress').style.display='none'},900);
-  }
+    for(let i=0;i<selected.length;i++){showStatus('Uploading photo '+(i+1)+' of '+selected.length+'…');await uploadOne(selected[i]);$('bar').style.width=Math.round(((i+1)/selected.length)*100)+'%'}
+    $('preview').innerHTML='';$('uploadBtn').style.display='none';$('pickBtn').style.display='none';document.querySelector('.hint').style.display='none';showStatus('Thank you! ❤️ Your photos have been added to Danley & Maria’s wedding memories in Google Drive.',true);$('againBtn').style.display='block';$('photos').value='';selected=[];
+  }catch(e){showStatus('We couldn’t upload the photos. '+e.message)}finally{$('uploadBtn').disabled=false;$('pickBtn').disabled=false;setTimeout(()=>{$('progress').style.display='none'},900)}
 }
-
-function resetUpload(){
-  $('pickBtn').style.display='block';
-  document.querySelector('.hint').style.display='block';
-  $('againBtn').style.display='none';
-  $('status').style.display='none';
-  $('bar').style.width='0';
-  $('photos').click();
-}
-
+function resetUpload(){$('pickBtn').style.display='block';document.querySelector('.hint').style.display='block';$('againBtn').style.display='none';$('status').style.display='none';$('bar').style.width='0';$('photos').click()}
 loadBoothPhoto();
 </script>
 </body>
