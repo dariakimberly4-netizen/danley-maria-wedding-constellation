@@ -44,18 +44,39 @@ const $=id=>document.getElementById(id);
 const configured=()=>C.cloudName&&!String(C.cloudName).startsWith('PASTE_')&&C.uploadPreset&&!String(C.uploadPreset).startsWith('PASTE_');
 let selected=[];
 
-$('photos').addEventListener('change',()=>{
-  selected=[...$('photos').files].slice(0,10);
+function renderSelected(){
   $('preview').innerHTML=selected.map(f=>`<img src="${URL.createObjectURL(f)}" alt="Selected wedding photo">`).join('');
   $('uploadBtn').style.display=selected.length?'block':'none';
-  $('status').style.display='none';
   $('againBtn').style.display='none';
+}
+
+$('photos').addEventListener('change',()=>{
+  selected=[...$('photos').files].slice(0,10);
+  renderSelected();
+  $('status').style.display='none';
 });
 
 function showStatus(text,success=false){
   $('status').textContent=text;
   $('status').className='status'+(success?' success':'');
   $('status').style.display='block';
+}
+
+function openDB(){return new Promise((resolve,reject)=>{const req=indexedDB.open('danley-maria-wedding',1);req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains('booth'))req.result.createObjectStore('booth')};req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)})}
+async function loadBoothPhoto(){
+  if(new URLSearchParams(location.search).get('from')!=='booth') return;
+  try{
+    const db=await openDB();
+    const blob=await new Promise((resolve,reject)=>{const tx=db.transaction('booth','readonly');const req=tx.objectStore('booth').get('latest');req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)});
+    if(blob){
+      selected=[new File([blob],'danley-maria-photo-booth.jpg',{type:blob.type||'image/jpeg'})];
+      renderSelected();
+      showStatus('Your Photo Booth picture is ready. Tap “Upload Wedding Photos” to add it to Danley & Maria’s memories.');
+      const tx=db.transaction('booth','readwrite');tx.objectStore('booth').delete('latest');
+    } else showStatus('The Photo Booth picture could not be found. Choose the saved photo from your phone instead.');
+    db.close();
+    history.replaceState({},'',location.pathname);
+  }catch(e){showStatus('Could not load the Photo Booth picture automatically. Choose the saved photo from your phone instead.')}
 }
 
 async function uploadAll(){
@@ -105,6 +126,8 @@ function resetUpload(){
   $('bar').style.width='0';
   $('photos').click();
 }
+
+loadBoothPhoto();
 </script>
 </body>
 </html>
