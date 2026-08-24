@@ -1,0 +1,3 @@
+window.WEDDING_GOOGLE_DRIVE = {
+  scriptUrl: "PASTE_GOOGLE_APPS_SCRIPT_WEB_APP_URL"
+};
