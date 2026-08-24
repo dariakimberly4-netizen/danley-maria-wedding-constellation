@@ -3,7 +3,9 @@ const STATUS_PREFIX = 'wedding_upload_';
 
 function doGet(e) {
   const p = (e && e.parameter) || {};
-  if (String(p.action || '') === 'status') {
+  const action = String(p.action || '');
+
+  if (action === 'status') {
     const id = String(p.id || '');
     const callback = safeCallback_(String(p.callback || 'callback'));
     const key = STATUS_PREFIX + id;
@@ -12,6 +14,28 @@ function doGet(e) {
     if (ok) props.deleteProperty(key);
     return javascript_(callback + '(' + JSON.stringify({ ok: ok }) + ');');
   }
+
+  if (action === 'list') {
+    const callback = safeCallback_(String(p.callback || 'callback'));
+    const folder = getOrCreateWeddingFolder_();
+    const files = folder.getFiles();
+    const photos = [];
+    while (files.hasNext()) {
+      const file = files.next();
+      const mime = String(file.getMimeType() || '');
+      if (mime.indexOf('image/') !== 0) continue;
+      photos.push({
+        id: file.getId(),
+        name: file.getName(),
+        createdAt: file.getDateCreated().toISOString(),
+        imageUrl: 'https://drive.google.com/thumbnail?id=' + encodeURIComponent(file.getId()) + '&sz=w1200',
+        viewUrl: 'https://drive.google.com/file/d/' + encodeURIComponent(file.getId()) + '/view'
+      });
+    }
+    photos.sort(function(a,b){ return String(b.createdAt).localeCompare(String(a.createdAt)); });
+    return javascript_(callback + '(' + JSON.stringify({ ok: true, photos: photos }) + ');');
+  }
+
   return json_({ ok: true, service: 'Danley & Maria Wedding Upload', folder: WEDDING_FOLDER_NAME });
 }
 
@@ -27,6 +51,7 @@ function doPost(e) {
     if (!raw) throw new Error('Missing photo data.');
 
     const mimeType = String(p.mimeType || 'image/jpeg');
+    if (mimeType.indexOf('image/') !== 0) throw new Error('Images only.');
     const filename = safeName_(String(p.fileName || p.filename || ('wedding-photo-' + Date.now() + '.jpg')));
     const base64 = raw.indexOf(',') > -1 ? raw.split(',').pop() : raw;
     const bytes = Utilities.base64Decode(base64);
@@ -35,6 +60,7 @@ function doPost(e) {
     const folder = getOrCreateWeddingFolder_();
     const blob = Utilities.newBlob(bytes, mimeType, filename);
     const file = folder.createFile(blob);
+    try { file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW); } catch (shareErr) {}
 
     PropertiesService.getScriptProperties().setProperty(STATUS_PREFIX + uploadId, file.getId());
 
@@ -47,7 +73,9 @@ function doPost(e) {
 function getOrCreateWeddingFolder_() {
   const folders = DriveApp.getFoldersByName(WEDDING_FOLDER_NAME);
   if (folders.hasNext()) return folders.next();
-  return DriveApp.createFolder(WEDDING_FOLDER_NAME);
+  const folder = DriveApp.createFolder(WEDDING_FOLDER_NAME);
+  try { folder.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW); } catch (shareErr) {}
+  return folder;
 }
 
 function safeName_(name) {
