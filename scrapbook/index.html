@@ -3,41 +3,131 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f6efe4">
+<meta name="theme-color" content="#7c8f73">
 <title>Danley & Maria — Digital Wedding Scrapbook</title>
 <style>
-:root{--cream:#fffaf2;--ink:#332b27;--muted:#7c7068;--navy:#183153;--gold:#b79153;--rose:#a76d73;--line:#e2d4c3}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:radial-gradient(circle at 50% 0,#fff 0,#f7efe4 50%,#e2d3c0 100%)}main{max-width:980px;margin:auto;padding:24px 16px 48px}.hero{text-align:center;background:rgba(255,250,242,.96);border:1px solid var(--line);border-radius:30px;padding:28px 20px;box-shadow:0 22px 55px rgba(65,48,35,.12)}.monogram{width:74px;height:74px;margin:0 auto 14px;border:1px solid #d6c4ad;border-radius:50%;display:grid;place-items:center;font:600 28px Georgia,serif;color:var(--rose);background:#fff}.date{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}h1{font:500 clamp(42px,11vw,68px)/1 Georgia,serif;margin:10px 0 8px}.sub{font:italic 20px Georgia,serif;color:var(--rose)}.intro{max-width:610px;margin:14px auto 0;color:var(--muted);line-height:1.6}.actions{display:grid;grid-template-columns:1fr;gap:10px;max-width:480px;margin:22px auto 0}.btn{display:block;padding:16px 18px;border-radius:18px;text-decoration:none;font-weight:850;text-align:center}.primary{background:var(--navy);color:#fff}.secondary{background:#fff;border:1px solid var(--line);color:var(--ink)}.section{margin-top:28px}.section h2{font:500 30px Georgia,serif;text-align:center;margin:0 0 14px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}.photo{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 10px 24px rgba(65,48,35,.08)}.photo img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}.photo .meta{padding:10px 12px;color:var(--muted);font-size:12px}.empty{background:rgba(255,250,242,.9);border:1px dashed var(--line);border-radius:18px;padding:30px 22px;text-align:center;color:var(--muted);line-height:1.6}.heart{color:var(--rose)}
+:root{
+  --sage:#7c8f73;
+  --sage-dark:#53664e;
+  --sage-soft:#dfe6da;
+  --ivory:#fffaf0;
+  --paper:#fffdf6;
+  --champagne:#c8a96b;
+  --blush:#d8b8ae;
+  --ink:#443b35;
+  --muted:#81766d;
+  --shadow:rgba(58,48,39,.22);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:Georgia,'Times New Roman',serif;background:
+ radial-gradient(circle at 15% 12%,rgba(255,255,255,.5),transparent 28%),
+ linear-gradient(135deg,#b8c5b1 0%,#879b7d 48%,#6f8268 100%);padding:18px 12px 42px}
+button,a{font:inherit}
+.album-shell{width:min(1100px,100%);margin:auto}
+.cover{min-height:calc(100vh - 60px);display:grid;place-items:center}
+.book-cover{position:relative;width:min(680px,94vw);min-height:78vh;border-radius:8px 24px 24px 8px;background:
+ linear-gradient(90deg,rgba(0,0,0,.13),transparent 8%),
+ radial-gradient(circle at 70% 20%,rgba(255,255,255,.08),transparent 28%),
+ var(--sage-dark);box-shadow:0 28px 70px rgba(35,42,33,.38),inset 0 0 0 2px rgba(255,255,255,.08);padding:28px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.book-cover:before{content:'';position:absolute;left:30px;top:0;bottom:0;width:3px;background:rgba(255,255,255,.14);box-shadow:8px 0 18px rgba(0,0,0,.15)}
+.book-cover:after{content:'✦  ❦  ✦';position:absolute;left:50%;bottom:30px;transform:translateX(-50%);color:#e8d6ad;font-size:24px;letter-spacing:8px}
+.cover-inner{position:relative;width:85%;border:1px solid rgba(231,211,166,.65);padding:46px 24px 54px}
+.small-cap{font-family:Arial,sans-serif;font-size:11px;font-weight:800;letter-spacing:.28em;text-transform:uppercase;color:#eadfca}
+.cover h1{margin:22px 0 8px;font-size:clamp(54px,12vw,96px);line-height:.9;font-weight:500;color:var(--ivory)}
+.amp{display:block;color:#e8d6ad;font-style:italic;font-size:.65em;margin:6px 0}
+.cover-sub{font-size:22px;font-style:italic;color:#f0e7d5;margin:14px 0 28px}
+.open-btn{border:1px solid rgba(255,255,255,.45);background:var(--ivory);color:var(--sage-dark);padding:16px 24px;border-radius:999px;font-family:Arial,sans-serif;font-weight:850;font-size:15px;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.open-btn:active{transform:scale(.98)}
+.book{display:none;position:relative;margin:26px auto 0;width:min(1050px,100%);background:#6a5541;padding:12px;border-radius:24px;box-shadow:0 30px 80px rgba(31,38,29,.38)}
+.book.open{display:block;animation:bookIn .5s ease both}
+@keyframes bookIn{from{opacity:0;transform:translateY(20px) scale(.98)}to{opacity:1;transform:none}}
+.spread{position:relative;display:grid;grid-template-columns:1fr 1fr;min-height:690px;background:var(--paper);border-radius:16px;overflow:hidden;box-shadow:inset 0 0 36px rgba(110,87,61,.08)}
+.spread:after{content:'';position:absolute;left:50%;top:0;bottom:0;width:18px;transform:translateX(-50%);background:linear-gradient(90deg,rgba(80,61,43,.08),rgba(255,255,255,.55),rgba(80,61,43,.08));pointer-events:none}
+.page{position:relative;padding:44px 40px 50px;background:
+ linear-gradient(rgba(139,115,84,.035) 1px,transparent 1px),
+ linear-gradient(90deg,rgba(139,115,84,.025) 1px,transparent 1px),
+ var(--paper);background-size:26px 26px;overflow:hidden}
+.page:first-child{border-right:1px solid #eadfce}
+.page-number{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);font:12px Arial,sans-serif;color:#ab9e91}
+.ribbon{display:inline-block;background:var(--blush);color:white;padding:8px 18px;transform:rotate(-2deg);font:700 11px Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;box-shadow:0 3px 0 rgba(0,0,0,.05)}
+.script{font-family:'Brush Script MT','Segoe Script',cursive;color:var(--sage-dark);font-size:clamp(38px,6vw,62px);line-height:1;margin:24px 0 12px;font-weight:500}
+.note{font-size:17px;line-height:1.75;color:#6f645c;max-width:430px}
+.date-card{margin:38px auto 0;width:min(340px,90%);padding:24px 18px;background:#f4eadc;transform:rotate(2deg);box-shadow:0 8px 18px rgba(86,67,50,.13);text-align:center;border:1px solid #ead9c1}
+.date-card b{display:block;color:var(--sage-dark);font-size:30px;margin:8px 0}.date-card span{font:700 11px Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#9b8061}
+.tape{position:absolute;width:96px;height:28px;background:rgba(226,210,177,.72);top:-14px;left:50%;transform:translateX(-50%) rotate(-3deg);box-shadow:0 2px 4px rgba(0,0,0,.05)}
+.booth-card{position:relative;margin:36px auto 0;width:min(360px,94%);background:white;padding:16px 16px 22px;transform:rotate(-2deg);box-shadow:0 12px 28px rgba(73,57,43,.18)}
+.booth-preview{height:280px;background:linear-gradient(145deg,#c8d4c1,#8ea084);display:grid;place-items:center;color:white;font-size:76px;border:8px solid #f7f3eb}
+.booth-card h3{margin:16px 0 6px;font-family:'Brush Script MT','Segoe Script',cursive;font-size:31px;color:var(--sage-dark);font-weight:500}
+.booth-card p{margin:0 0 14px;font-family:Arial,sans-serif;font-size:13px;line-height:1.5;color:var(--muted)}
+.booth-link{display:block;text-align:center;text-decoration:none;background:var(--sage-dark);color:white;border-radius:8px;padding:14px 16px;font:800 14px Arial,sans-serif}
+.memories{margin-top:18px}
+.memories-title{text-align:center;font-family:'Brush Script MT','Segoe Script',cursive;font-size:44px;color:var(--sage-dark);margin:0 0 18px}
+.photo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px 18px;padding:10px}
+.polaroid{position:relative;background:white;padding:10px 10px 34px;box-shadow:0 8px 18px rgba(73,57,43,.18);transform:rotate(var(--r,-2deg));transition:.2s}
+.polaroid:nth-child(even){--r:2.2deg}.polaroid:nth-child(3n){--r:-1deg}
+.polaroid:hover{transform:rotate(0) scale(1.02)}
+.polaroid:before{content:'';position:absolute;width:68px;height:20px;background:rgba(229,211,175,.72);top:-10px;left:50%;transform:translateX(-50%) rotate(2deg)}
+.polaroid img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;background:#eee}
+.caption{text-align:center;margin-top:11px;font-family:'Brush Script MT','Segoe Script',cursive;font-size:21px;color:#66594f}
+.empty-page{min-height:390px;display:grid;place-items:center;text-align:center;border:1px dashed #d8c8b4;padding:32px;background:rgba(255,255,255,.42)}
+.empty-page .big{font-size:60px;color:var(--blush)}
+.empty-page h3{font-family:'Brush Script MT','Segoe Script',cursive;font-size:34px;color:var(--sage-dark);margin:8px 0}
+.empty-page p{font-family:Arial,sans-serif;color:var(--muted);line-height:1.6;max-width:360px;margin:0}
+.bottom-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:18px 0 4px}.bottom-actions a,.bottom-actions button{border:0;text-decoration:none;border-radius:999px;padding:13px 18px;font:800 13px Arial,sans-serif;cursor:pointer}.bottom-actions a{background:var(--sage-dark);color:white}.bottom-actions button{background:#efe5d6;color:var(--ink)}
+@media(max-width:760px){body{padding:10px 8px 28px}.book-cover{min-height:82vh}.book{padding:7px;border-radius:18px}.spread{grid-template-columns:1fr;min-height:auto}.spread:after{display:none}.page{padding:36px 22px 44px}.page:first-child{border-right:0;border-bottom:1px solid #eadfce}.photo-grid{grid-template-columns:1fr 1fr;gap:22px 12px}.booth-preview{height:220px}.page-number{display:none}}
+@media(max-width:430px){.photo-grid{grid-template-columns:1fr}.cover-inner{width:92%;padding:40px 16px 54px}.cover-sub{font-size:19px}}
 </style>
 </head>
 <body>
-<main>
-<section class="hero">
-<div class="monogram">D♡M</div>
-<div class="date">August 28, 2026</div>
-<h1>Danley <span class="heart">&</span> Maria</h1>
-<div class="sub">Digital Wedding Scrapbook</div>
-<p class="intro">Welcome to their wedding memories. Guests can enjoy the scrapbook and use the wedding photo booth. There is no online photo upload — Danley and Maria will choose the photos they want added after the wedding.</p>
-<div class="actions">
-<a class="btn primary" href="../photo-booth.html">📷 Open Wedding Photo Booth</a>
-<a class="btn secondary" href="#memories">♡ View Wedding Memories</a>
+<div class="album-shell">
+<section class="cover" id="cover">
+  <div class="book-cover">
+    <div class="cover-inner">
+      <div class="small-cap">Our Wedding Scrapbook</div>
+      <h1>Danley <span class="amp">&</span> Maria</h1>
+      <div class="cover-sub">A collection of little moments from our forever day</div>
+      <div class="small-cap">August 28, 2026</div>
+      <div style="margin-top:34px"><button class="open-btn" onclick="openBook()">Open the Scrapbook ♡</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <div class="spread">
+    <article class="page">
+      <span class="ribbon">Our Story</span>
+      <h2 class="script">The day we said “I do”</h2>
+      <p class="note">This scrapbook is our little keepsake — a place for the smiles, happy tears, candid moments, and memories we want to remember long after the wedding day.</p>
+      <div class="date-card"><div class="tape"></div><span>Save the date</span><b>28 • 08 • 2026</b><span>Danley & Maria</span></div>
+      <div class="page-number">01</div>
+    </article>
+    <article class="page">
+      <span class="ribbon">Photo Booth</span>
+      <div class="booth-card"><div class="tape"></div><div class="booth-preview">♡</div><h3>Make a memory</h3><p>Take a framed wedding photo, save it directly to your phone, and keep your own little souvenir from the celebration.</p><a class="booth-link" href="../photo-booth.html">Open Wedding Photo Booth</a></div>
+      <div class="page-number">02</div>
+    </article>
+  </div>
+
+  <div class="spread memories" id="memories">
+    <article class="page" style="grid-column:1/-1">
+      <h2 class="memories-title">Our Wedding Memories</h2>
+      <div id="photoGrid" class="photo-grid"></div>
+      <div class="page-number">03</div>
+    </article>
+  </div>
+
+  <div class="bottom-actions"><button onclick="closeBook()">Close Scrapbook</button><a href="../photo-booth.html">📷 Photo Booth</a></div>
+</section>
 </div>
-</section>
-<section class="section" id="memories">
-<h2>Wedding Memories</h2>
-<div id="grid" class="grid"></div>
-</section>
-</main>
 <script src="photos.js"></script>
 <script>
 const photos=Array.isArray(window.WEDDING_PHOTOS)?window.WEDDING_PHOTOS:[];
-const grid=document.getElementById('grid');
+const grid=document.getElementById('photoGrid');
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-if(!photos.length){
-  grid.innerHTML='<div class="empty">Danley and Maria will choose their favorite photos after the wedding. Their selected memories will appear here.</div>';
-}else{
-  grid.innerHTML=photos.map((p,i)=>`<article class="photo"><a href="${esc(p.src)}" target="_blank" rel="noopener"><img loading="lazy" src="${esc(p.src)}" alt="Danley and Maria wedding memory ${i+1}"></a>${p.caption?`<div class="meta">${esc(p.caption)}</div>`:''}</article>`).join('');
-}
+function openBook(){document.getElementById('cover').style.display='none';document.getElementById('book').classList.add('open');window.scrollTo({top:0,behavior:'smooth'});}
+function closeBook(){document.getElementById('book').classList.remove('open');document.getElementById('cover').style.display='grid';window.scrollTo({top:0,behavior:'smooth'});}
+if(!photos.length){grid.innerHTML='<div class="empty-page" style="grid-column:1/-1"><div><div class="big">❦</div><h3>Pages waiting for memories</h3><p>Danley and Maria will choose their favorite wedding photos. Their selected memories will be placed here like a real scrapbook album.</p></div></div>';}else{grid.innerHTML=photos.map((p,i)=>`<article class="polaroid"><a href="${esc(p.src)}" target="_blank" rel="noopener"><img loading="lazy" src="${esc(p.src)}" alt="Danley and Maria wedding memory ${i+1}"></a><div class="caption">${esc(p.caption||'A beautiful memory ♡')}</div></article>`).join('');}
 </script>
 </body>
 </html>
