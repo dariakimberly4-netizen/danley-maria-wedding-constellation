@@ -1,37 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Danley & Maria — Scrapbook Admin</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f6efe4">
+<title>Danley & Maria — Scrapbook Guide</title>
 <style>
-:root{--bg:#f8f4ee;--ink:#302b28;--line:#e4d8ca;--navy:#183153;--gold:#b79153;--muted:#756c66;--ok:#315a43}*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}main{max-width:980px;margin:auto;padding:24px 16px 48px}.head{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}h1{font:500 36px Georgia,serif;margin:4px 0}.muted{color:var(--muted);font-size:13px}.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;margin:16px 0}.uploadbox{max-width:620px}.pick,.upload,.again{width:100%;border:0;border-radius:16px;padding:16px 18px;font-size:16px;font-weight:850;cursor:pointer}.pick{background:var(--navy);color:#fff}.upload{display:none;background:var(--gold);color:#fff;margin-top:12px}.again{display:none;background:#f2ece5;color:var(--ink);margin-top:10px}.preview{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}.preview img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;border:1px solid var(--line)}.status{display:none;margin-top:12px;padding:13px 14px;border-radius:14px;background:#f0e7da;color:#4e453f}.success{background:#e7f1ea;color:var(--ok);font-weight:750}.progress{display:none;margin-top:12px;height:9px;border-radius:999px;background:#e8ddcf;overflow:hidden}.bar{height:100%;width:0;background:var(--gold)}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}.item{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}.item img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}.meta{padding:10px 12px}.btn{display:inline-block;padding:10px 12px;border-radius:11px;background:var(--navy);color:#fff;text-decoration:none;font-weight:750;font-size:13px}.setup{background:#fff7d9;border-color:#ead797}.toplink{color:var(--ink);font-weight:700}.hint{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.45}@media(max-width:480px){.preview{grid-template-columns:repeat(2,1fr)}h1{font-size:32px}}
+:root{--bg:#f8f4ee;--ink:#302b28;--line:#e4d8ca;--navy:#183153;--gold:#b79153;--rose:#a76d73;--muted:#756c66}*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:radial-gradient(circle at 50% 0,#fff 0,var(--bg) 60%,#e7dacb 100%);color:var(--ink)}main{max-width:700px;margin:auto;padding:28px 16px 50px}.hero,.card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;margin-bottom:16px;box-shadow:0 14px 32px rgba(65,48,35,.08)}.hero{text-align:center}.date{font-size:11px;font-weight:800;letter-spacing:.2em;color:var(--gold);text-transform:uppercase}h1{font:500 42px Georgia,serif;margin:10px 0 6px}.sub{font:italic 18px Georgia,serif;color:var(--rose)}h2{font:500 26px Georgia,serif;margin:0 0 12px}.muted{color:var(--muted);line-height:1.6}.step{display:flex;gap:13px;align-items:flex-start;margin:14px 0}.num{flex:0 0 38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#f2e7d7;color:#7b5a2b;font-weight:850}.step b{display:block;margin:2px 0 4px}.actions{display:grid;gap:10px;margin-top:18px}.btn{display:block;text-align:center;padding:16px 18px;border-radius:16px;text-decoration:none;font-weight:850}.primary{background:var(--navy);color:#fff}.secondary{background:#f3ece4;color:var(--ink);border:1px solid var(--line)}.note{background:#fff8df;border-color:#ead797}.small{font-size:12px;color:var(--muted);line-height:1.5}
 </style>
 </head>
 <body><main>
-<div class="head"><div><div class="muted">DANLEY & MARIA • COUPLE UPLOAD PAGE</div><h1>Wedding Scrapbook</h1><div class="muted">August 28, 2026</div></div><a class="toplink" href="index.html">View public scrapbook →</a></div>
-<div class="card uploadbox">
-<h2>Upload Wedding Photos</h2>
-<p class="muted">Use this page on Danley or Maria’s phone. Guests do not see this upload control.</p>
-<input id="photos" type="file" accept="image/*" multiple hidden>
-<button id="pickBtn" class="pick" onclick="photos.click()">📷 Choose Wedding Photos</button>
-<div id="preview" class="preview"></div>
-<button id="uploadBtn" class="upload" onclick="uploadAll()">Upload to Scrapbook</button>
-<div id="progress" class="progress"><div id="bar" class="bar"></div></div>
-<div id="status" class="status"></div>
-<button id="againBtn" class="again" onclick="resetUpload()">＋ Upload More Photos</button>
-<div class="hint">Keep this admin link private. There is no password on this page.</div>
+<section class="hero">
+<div class="date">August 28, 2026</div>
+<h1>Danley & Maria</h1>
+<div class="sub">Wedding Scrapbook Guide</div>
+<p class="muted">There is no online photo upload and no cloud storage setup required.</p>
+</section>
+<section class="card">
+<h2>How the scrapbook works</h2>
+<div class="step"><div class="num">1</div><div><b>Guests use the Photo Booth</b><span class="muted">They take a framed wedding photo and save it directly to their own phone.</span></div></div>
+<div class="step"><div class="num">2</div><div><b>Danley and Maria collect the photos they want</b><span class="muted">Guests can send their saved photos later through any method the couple prefers.</span></div></div>
+<div class="step"><div class="num">3</div><div><b>The couple chooses the favorites</b><span class="muted">Only selected photos are added to the Digital Wedding Scrapbook.</span></div></div>
+<div class="step"><div class="num">4</div><div><b>Selected photos are added manually to the website</b><span class="muted">The scrapbook is a simple static gallery, so there is no account, upload service, Apps Script, Cloudinary, or Dropbox required.</span></div></div>
+</section>
+<section class="card note">
+<h2>Simple and controlled</h2>
+<p class="muted">Guests cannot publish anything directly. Danley and Maria decide exactly which photos become part of their wedding scrapbook.</p>
+</section>
+<div class="actions">
+<a class="btn primary" href="index.html">♡ View Digital Scrapbook</a>
+<a class="btn secondary" href="../photo-booth.html">📷 Open Wedding Photo Booth</a>
 </div>
-<div class="card"><h2>Current Wedding Memories</h2><div id="galleryStatus" class="muted">Loading…</div><div id="grid" class="grid"></div></div>
-<script src="google-drive-config.js"></script>
-<script>
-const G=window.WEDDING_GOOGLE_DRIVE||{};const $=id=>document.getElementById(id);const configured=()=>/^https:\/\/script\.google\.com\/macros\/s\/.+\/exec(?:\?.*)?$/.test(String(G.scriptUrl||''));let selected=[];
-function showStatus(text,success=false){$('status').textContent=text;$('status').className='status'+(success?' success':'');$('status').style.display='block'}
-function renderSelected(){$('preview').innerHTML='';selected.forEach(f=>{const img=document.createElement('img');img.src=URL.createObjectURL(f);img.alt='Selected wedding photo';$('preview').appendChild(img)});$('uploadBtn').style.display=selected.length?'block':'none';$('againBtn').style.display='none'}
-$('photos').addEventListener('change',()=>{selected=[...$('photos').files].slice(0,10);renderSelected();$('status').style.display='none'});
-function delay(ms){return new Promise(r=>setTimeout(r,ms))}function fileToBase64(file){return new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(String(r.result).split(',')[1]||'');r.onerror=()=>reject(r.error);r.readAsDataURL(file)})}function uid(){return Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,10)}
-function checkStatus(id){return new Promise(resolve=>{const cb='__weddingCb_'+Math.random().toString(36).slice(2);const s=document.createElement('script');let done=false;const finish=v=>{if(done)return;done=true;clearTimeout(timer);delete window[cb];s.remove();resolve(!!v)};window[cb]=data=>finish(data&&data.ok);s.onerror=()=>finish(false);s.src=G.scriptUrl+'?action=status&id='+encodeURIComponent(id)+'&callback='+encodeURIComponent(cb)+'&t='+Date.now();document.head.appendChild(s);const timer=setTimeout(()=>finish(false),3500)})}
-async function uploadOne(file){const id=uid(),base64=await fileToBase64(file),body=new URLSearchParams({action:'upload',uploadId:id,fileName:file.name||('wedding-photo-'+Date.now()+'.jpg'),mimeType:file.type||'image/jpeg',base64});await fetch(G.scriptUrl,{method:'POST',mode:'no-cors',body});for(let attempt=0;attempt<7;attempt++){await delay(650+attempt*250);if(await checkStatus(id))return true}throw new Error('Google Drive did not confirm the upload.')}
-async function uploadAll(){if(!configured())return showStatus('One-time setup is still needed: deploy the included Google Apps Script as a Web App, then connect its /exec URL in google-drive-config.js.');if(!selected.length)return showStatus('Choose at least one photo.');for(const f of selected){if(!String(f.type).startsWith('image/'))return showStatus('Images only.');if(f.size>15*1024*1024)return showStatus((f.name||'A photo')+' is larger than 15 MB.')}$('pickBtn').disabled=true;$('uploadBtn').disabled=true;$('progress').style.display='block';$('bar').style.width='4%';try{for(let i=0;i<selected.length;i++){showStatus('Uploading '+(i+1)+' of '+selected.length+'…');await uploadOne(selected[i]);$('bar').style.width=Math.round(((i+1)/selected.length)*100)+'%'}$('preview').innerHTML='';$('uploadBtn').style.display='none';showStatus('Uploaded successfully. The photos are now in the wedding scrapbook.',true);$('againBtn').style.display='block';$('photos').value='';selected=[];setTimeout(loadGallery,800)}catch(e){showStatus('Upload failed. '+e.message)}finally{$('pickBtn').disabled=false;$('uploadBtn').disabled=false;setTimeout(()=>{$('progress').style.display='none'},800)}}
-function resetUpload(){$('againBtn').style.display='none';$('status').style.display='none';$('bar').style.width='0';$('photos').click()}
-function loadGallery(){const st=$('galleryStatus'),grid=$('grid');if(!configured()){st.innerHTML='<div class="card setup"><b>Google Drive connection not deployed yet.</b><br>Once the Apps Script Web App URL is connected, uploaded photos will appear here.</div>';return}const cb='__adminGallery_'+Math.random().toString(36).slice(2),s=document.createElement('script');const done=()=>{delete window[cb];s.remove()};window[cb]=data=>{done();const photos=data&&data.ok&&Array.isArray(data.photos)?data.photos:[];st.textContent=photos.length+' photo'+(photos.length===1?'':'s');grid.innerHTML=photos.map(p=>`<article class="item"><img loading="lazy" src="${p.imageUrl}" alt="Wedding memory"><div class="meta"><div class="muted">${p.createdAt?new Date(p.createdAt).toLocaleString():''}</div><p><a class="btn" href="${p.viewUrl}" target="_blank" rel="noopener">View / Save</a></p></div></article>`).join('')};s.onerror=()=>{done();st.textContent='Could not load the gallery.'};s.src=G.scriptUrl+'?action=list&callback='+encodeURIComponent(cb)+'&t='+Date.now();document.head.appendChild(s)}
-loadGallery();
-</script></main></body></html>
+<p class="small">When the couple has selected photos, they can be added to the static scrapbook files and will then appear for everyone viewing the site.</p>
+</main></body>
+</html>
