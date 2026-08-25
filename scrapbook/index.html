@@ -7,7 +7,7 @@
 <title>Danley & Maria — Digital Wedding Scrapbook</title>
 <style>
 :root{--cream:#fffaf2;--ink:#332b27;--muted:#7c7068;--navy:#183153;--gold:#b79153;--rose:#a76d73;--line:#e2d4c3}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:radial-gradient(circle at 50% 0,#fff 0,#f7efe4 50%,#e2d3c0 100%)}main{max-width:980px;margin:auto;padding:24px 16px 48px}.hero{text-align:center;background:rgba(255,250,242,.96);border:1px solid var(--line);border-radius:30px;padding:28px 20px;box-shadow:0 22px 55px rgba(65,48,35,.12)}.monogram{width:74px;height:74px;margin:0 auto 14px;border:1px solid #d6c4ad;border-radius:50%;display:grid;place-items:center;font:600 28px Georgia,serif;color:var(--rose);background:#fff}.date{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}h1{font:500 clamp(42px,11vw,68px)/1 Georgia,serif;margin:10px 0 8px}.sub{font:italic 20px Georgia,serif;color:var(--rose)}.intro{max-width:580px;margin:14px auto 0;color:var(--muted);line-height:1.6}.actions{display:grid;grid-template-columns:1fr;gap:10px;max-width:480px;margin:22px auto 0}.btn{display:block;padding:16px 18px;border-radius:18px;text-decoration:none;font-weight:850;text-align:center}.primary{background:var(--navy);color:#fff}.secondary{background:#fff;border:1px solid var(--line);color:var(--ink)}.section{margin-top:28px}.section h2{font:500 30px Georgia,serif;text-align:center;margin:0 0 14px}.status{text-align:center;color:var(--muted);padding:22px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}.photo{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 10px 24px rgba(65,48,35,.08)}.photo img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}.photo .meta{padding:10px 12px;color:var(--muted);font-size:12px}.empty{background:rgba(255,250,242,.9);border:1px dashed var(--line);border-radius:18px;padding:28px;text-align:center;color:var(--muted)}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:radial-gradient(circle at 50% 0,#fff 0,#f7efe4 50%,#e2d3c0 100%)}main{max-width:980px;margin:auto;padding:24px 16px 48px}.hero{text-align:center;background:rgba(255,250,242,.96);border:1px solid var(--line);border-radius:30px;padding:28px 20px;box-shadow:0 22px 55px rgba(65,48,35,.12)}.monogram{width:74px;height:74px;margin:0 auto 14px;border:1px solid #d6c4ad;border-radius:50%;display:grid;place-items:center;font:600 28px Georgia,serif;color:var(--rose);background:#fff}.date{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}h1{font:500 clamp(42px,11vw,68px)/1 Georgia,serif;margin:10px 0 8px}.sub{font:italic 20px Georgia,serif;color:var(--rose)}.intro{max-width:610px;margin:14px auto 0;color:var(--muted);line-height:1.6}.actions{display:grid;grid-template-columns:1fr;gap:10px;max-width:480px;margin:22px auto 0}.btn{display:block;padding:16px 18px;border-radius:18px;text-decoration:none;font-weight:850;text-align:center}.primary{background:var(--navy);color:#fff}.secondary{background:#fff;border:1px solid var(--line);color:var(--ink)}.section{margin-top:28px}.section h2{font:500 30px Georgia,serif;text-align:center;margin:0 0 14px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}.photo{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 10px 24px rgba(65,48,35,.08)}.photo img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}.photo .meta{padding:10px 12px;color:var(--muted);font-size:12px}.empty{background:rgba(255,250,242,.9);border:1px dashed var(--line);border-radius:18px;padding:30px 22px;text-align:center;color:var(--muted);line-height:1.6}.heart{color:var(--rose)}
 </style>
 </head>
 <body>
@@ -15,9 +15,9 @@
 <section class="hero">
 <div class="monogram">D♡M</div>
 <div class="date">August 28, 2026</div>
-<h1>Danley & Maria</h1>
+<h1>Danley <span class="heart">&</span> Maria</h1>
 <div class="sub">Digital Wedding Scrapbook</div>
-<p class="intro">Welcome to their wedding memories. Guests can enjoy the scrapbook and use the wedding photo booth. Photo uploads are managed privately by Danley and Maria.</p>
+<p class="intro">Welcome to their wedding memories. Guests can enjoy the scrapbook and use the wedding photo booth. There is no online photo upload — Danley and Maria will choose the photos they want added after the wedding.</p>
 <div class="actions">
 <a class="btn primary" href="../photo-booth.html">📷 Open Wedding Photo Booth</a>
 <a class="btn secondary" href="#memories">♡ View Wedding Memories</a>
@@ -25,27 +25,19 @@
 </section>
 <section class="section" id="memories">
 <h2>Wedding Memories</h2>
-<div id="status" class="status">Loading scrapbook…</div>
 <div id="grid" class="grid"></div>
 </section>
 </main>
-<script src="google-drive-config.js"></script>
+<script src="photos.js"></script>
 <script>
-const G=window.WEDDING_GOOGLE_DRIVE||{};
-const configured=()=>/^https:\/\/script\.google\.com\/macros\/s\/.+\/exec(?:\?.*)?$/.test(String(G.scriptUrl||''));
+const photos=Array.isArray(window.WEDDING_PHOTOS)?window.WEDDING_PHOTOS:[];
+const grid=document.getElementById('grid');
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-function loadGallery(){
-  const status=document.getElementById('status'),grid=document.getElementById('grid');
-  if(!configured()){status.textContent='Wedding memories are being prepared.';return;}
-  const cb='__weddingGallery_'+Math.random().toString(36).slice(2);
-  const s=document.createElement('script');
-  const done=()=>{delete window[cb];s.remove()};
-  window[cb]=data=>{done();const photos=data&&data.ok&&Array.isArray(data.photos)?data.photos:[];status.style.display='none';grid.innerHTML=photos.length?photos.map(p=>`<article class="photo"><a href="${esc(p.viewUrl)}" target="_blank" rel="noopener"><img loading="lazy" src="${esc(p.imageUrl)}" alt="Danley and Maria wedding memory"></a><div class="meta">${p.createdAt?new Date(p.createdAt).toLocaleString():''}</div></article>`).join(''):'<div class="empty">Wedding photos will appear here as Danley and Maria add them.</div>'};
-  s.onerror=()=>{done();status.textContent='The scrapbook could not load right now. Please try again later.'};
-  s.src=G.scriptUrl+'?action=list&callback='+encodeURIComponent(cb)+'&t='+Date.now();
-  document.head.appendChild(s);
+if(!photos.length){
+  grid.innerHTML='<div class="empty">Danley and Maria will choose their favorite photos after the wedding. Their selected memories will appear here.</div>';
+}else{
+  grid.innerHTML=photos.map((p,i)=>`<article class="photo"><a href="${esc(p.src)}" target="_blank" rel="noopener"><img loading="lazy" src="${esc(p.src)}" alt="Danley and Maria wedding memory ${i+1}"></a>${p.caption?`<div class="meta">${esc(p.caption)}</div>`:''}</article>`).join('');
 }
-loadGallery();
 </script>
 </body>
 </html>
