@@ -3,118 +3,75 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f5efe6">
-<title>Danley & Maria — Digital Scrapbook</title>
+<meta name="theme-color" content="#eee7dc">
+<title>Danley & Maria — Digital Wedding Scrapbook</title>
 <style>
-:root{--cream:#fbf6ee;--paper:#fffdf8;--sage:#7d896d;--sage2:#aeb89d;--blush:#d9a698;--blush2:#f0d8cf;--gold:#bd9a61;--ink:#5b4135;--muted:#8b7469;--line:#e8dac8;--shadow:0 14px 34px rgba(79,59,45,.16)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 50% 0,#fff 0,#fbf6ee 52%,#eee5d9 100%);color:var(--ink);font-family:Georgia,'Times New Roman',serif}.wrap{max-width:1180px;margin:auto;padding:18px 14px 50px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}.top-left,.top-right{display:flex;gap:10px;flex-wrap:wrap}.btn{border:1px solid #ddcfbf;background:#fffaf3;color:var(--ink);border-radius:12px;padding:12px 16px;font:700 14px Arial,sans-serif;box-shadow:0 4px 10px rgba(70,50,38,.08);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:46px}.btn.sage{background:var(--sage);border-color:var(--sage);color:#fff}.btn.blush{background:var(--blush);border-color:var(--blush);color:#fff}.btn:active{transform:scale(.98)}.masthead{text-align:center;margin:6px 0 18px}.masthead .title{font-size:clamp(30px,6vw,54px);letter-spacing:.04em}.masthead .names{font-family:'Brush Script MT','Segoe Script',cursive;font-size:clamp(36px,7vw,66px);color:#b06f58;line-height:1;margin:4px 0}.masthead .date{font-size:15px;letter-spacing:.22em;color:#7f695d}.sprig{color:var(--sage);font-size:24px;letter-spacing:8px;margin-top:7px}.layout{display:grid;grid-template-columns:1fr 1.15fr;gap:22px;align-items:start}.coverbook,.spread{background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow)}.coverbook{position:relative;border-radius:7px 16px 16px 7px;min-height:430px;padding:28px 34px 28px 78px;display:grid;place-items:center;text-align:center;overflow:hidden}.coverbook:before{content:'';position:absolute;inset:0 auto 0 0;width:64px;background:linear-gradient(90deg,#6f7a61,#9aa58a);box-shadow:inset -8px 0 12px rgba(0,0,0,.12)}.coverbook:after{content:'❀  ❦  ❀';position:absolute;left:92px;top:34px;color:var(--sage);font-size:32px;transform:rotate(-10deg)}.corner{position:absolute;width:38px;height:38px;border:3px solid var(--gold)}.c1{right:8px;top:8px;border-left:0;border-bottom:0}.c2{right:8px;bottom:8px;border-left:0;border-top:0}.coverbook h2{font-size:17px;letter-spacing:.12em;margin:0 0 14px}.coverbook .script{font-family:'Brush Script MT','Segoe Script',cursive;font-size:clamp(44px,7vw,68px);color:#a56e42;line-height:1.05;margin:12px 0}.coverbook .heart{color:var(--blush);font-size:25px}.coverbook .coverdate{font-size:16px;letter-spacing:.16em;color:#776257;margin-top:16px}.coverlabel{text-align:center;margin-top:10px}.pill{display:inline-block;background:var(--sage);color:#fff;padding:8px 24px;border-radius:8px;font:700 12px Arial,sans-serif;letter-spacing:.08em}.spread{position:relative;display:grid;grid-template-columns:1fr 1fr;border-radius:10px;overflow:hidden;min-height:430px}.spread:after{content:'';position:absolute;left:50%;top:0;bottom:0;width:12px;transform:translateX(-50%);background:linear-gradient(90deg,rgba(90,67,51,.08),rgba(255,255,255,.8),rgba(90,67,51,.08));pointer-events:none}.page{position:relative;padding:28px 28px 34px;min-width:0}.page:first-child{border-right:1px solid var(--line)}.welcome{text-align:center;display:grid;place-items:center}.welcome h3,.boothcopy h3{font-family:'Brush Script MT','Segoe Script',cursive;font-size:44px;font-weight:500;color:#9e654e;margin:0 0 8px}.welcome p,.boothcopy p{line-height:1.7;color:var(--muted);font-size:15px}.floral{font-size:28px;color:var(--sage);margin:14px}.polaroid{position:relative;background:#fff;padding:12px 12px 36px;box-shadow:0 8px 20px rgba(64,48,38,.17);transform:rotate(-2deg);max-width:290px;margin:8px auto}.polaroid:before{content:'';position:absolute;width:86px;height:24px;background:rgba(218,194,159,.6);top:-10px;right:16px;transform:rotate(8deg)}.photo-placeholder{aspect-ratio:4/5;background:linear-gradient(145deg,#dfe5d9,#f2ded5);display:grid;place-items:center;text-align:center;color:#fff;font:700 16px Arial,sans-serif;padding:20px}.caption{font-family:'Brush Script MT','Segoe Script',cursive;text-align:center;font-size:22px;color:#72584d;margin-top:8px}.section{margin-top:22px}.section-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}.boothspread .page:first-child{display:grid;place-items:center;text-align:center}.camera-icon{font-size:56px;color:#a9795d}.strip{display:grid;grid-template-columns:1fr 1fr;gap:8px}.strip div{aspect-ratio:1;background:linear-gradient(145deg,#cbd4c3,#efcec2);display:grid;place-items:center;color:white;font-size:26px}.memspread .page{display:flex;flex-direction:column;justify-content:center}.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.memory-card{position:relative;background:#fff;padding:9px 9px 28px;box-shadow:0 7px 16px rgba(64,48,38,.14);transform:rotate(var(--r,-1deg))}.memory-card:nth-child(even){--r:1.4deg}.memory-card:before{content:'';position:absolute;width:58px;height:18px;background:rgba(218,194,159,.6);top:-8px;left:50%;transform:translateX(-50%)}.memory-card img{width:100%;aspect-ratio:1;object-fit:cover;display:block}.memory-card .ph{width:100%;aspect-ratio:1;background:linear-gradient(145deg,#d5ddd0,#efd6cf);display:grid;place-items:center;color:#fff;font:700 13px Arial,sans-serif;text-align:center;padding:10px}.memory-card small{display:block;text-align:center;margin-top:8px;font-family:'Brush Script MT','Segoe Script',cursive;font-size:18px;color:#745f54}.page-tabs{margin-top:22px;background:#fff8f1;border:1px solid #efcfc4;border-radius:14px;padding:16px}.page-tabs-title{text-align:center;font-size:14px;letter-spacing:.08em;margin-bottom:12px}.tabs{display:flex;justify-content:center;gap:9px;flex-wrap:wrap}.tab{border:0;background:#e7d8c4;color:#6f594c;border-radius:7px;padding:10px 14px;font-weight:800;cursor:pointer;min-width:56px}.tab.add{background:#f0e4d7;font-size:18px}.extra{margin-top:22px}.empty-extra{background:#fffaf4;border:1px dashed #d9c5b4;border-radius:12px;padding:34px;text-align:center;color:var(--muted)}.save-note{text-align:center;margin:16px auto 0;max-width:650px;background:#fff8f0;border:1px solid #ecd9c9;border-radius:12px;padding:14px 18px;font-size:14px;line-height:1.6}.status{text-align:center;color:#66745f;font:700 13px Arial,sans-serif;min-height:22px;margin-top:10px}
-@media(max-width:850px){.layout,.section-grid{grid-template-columns:1fr}.coverbook{min-height:370px}.spread{min-height:390px}}
-@media(max-width:560px){.wrap{padding:10px 8px 34px}.topbar{display:grid;grid-template-columns:1fr}.top-left,.top-right{display:grid;grid-template-columns:1fr 1fr}.btn{width:100%;padding:12px 9px}.spread{grid-template-columns:1fr}.spread:after{display:none}.page:first-child{border-right:0;border-bottom:1px solid var(--line)}.coverbook{padding:24px 18px 24px 62px}.coverbook:before{width:50px}.coverbook:after{left:70px}.memory-grid{gap:10px}.masthead .date{font-size:12px}}
+:root{--ivory:#fffaf1;--paper:#fffdf7;--sage:#88947d;--sage2:#aeb9a4;--blush:#d9aaa0;--gold:#b89a62;--brown:#5a4439;--muted:#8a776d;--line:#e6d8c7}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:radial-gradient(circle at top,#fffdf8,#eee7dc 58%,#ddd3c6);color:var(--brown);font-family:Georgia,'Times New Roman',serif}button,a{font:inherit}
+.stage{min-height:100vh;display:grid;place-items:center;padding:16px}.cover{width:min(620px,94vw);aspect-ratio:4/5;max-height:86vh;position:relative;border-radius:10px 28px 28px 10px;background:linear-gradient(90deg,rgba(0,0,0,.13),transparent 8%),linear-gradient(145deg,#7e8a74,#aab59f);box-shadow:0 28px 70px rgba(67,55,46,.34);padding:30px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}.cover:before{content:'';position:absolute;left:29px;top:0;bottom:0;width:3px;background:rgba(255,255,255,.2)}.cover:after{content:'❦';position:absolute;bottom:28px;font-size:30px;color:#efd9ad}.cover-inner{width:84%;border:1px solid rgba(239,217,173,.85);padding:42px 20px 54px}.eyebrow{font-family:Arial,sans-serif;font-size:11px;letter-spacing:.26em;text-transform:uppercase;font-weight:800;color:#fff7eb}.cover h1{font-size:clamp(50px,11vw,90px);line-height:.88;margin:22px 0 10px;color:var(--ivory);font-weight:500}.cover .amp{display:block;color:#efd9ad;font-style:italic;font-size:.66em;margin:7px 0}.cover p{font-size:20px;font-style:italic;color:#fff9f1;line-height:1.5}.open{margin-top:26px;border:0;border-radius:999px;background:var(--ivory);color:#66715e;padding:15px 24px;font-family:Arial,sans-serif;font-weight:850;cursor:pointer;min-height:48px}
+.scrapbook{display:none;width:min(1080px,100%);margin:auto}.scrapbook.show{display:block}.book{position:relative;background:#8c7967;padding:12px;border-radius:24px;box-shadow:0 28px 70px rgba(68,55,45,.32)}.spread{position:relative;display:grid;grid-template-columns:1fr 1fr;min-height:680px;background:var(--paper);border-radius:16px;overflow:hidden;box-shadow:inset 0 0 30px rgba(91,70,51,.08)}.spread:after{content:'';position:absolute;left:50%;top:0;bottom:0;width:18px;transform:translateX(-50%);background:linear-gradient(90deg,rgba(80,61,43,.08),rgba(255,255,255,.72),rgba(80,61,43,.08));pointer-events:none}.page{position:relative;padding:42px 38px 54px;background:linear-gradient(rgba(130,105,78,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(130,105,78,.02) 1px,transparent 1px),var(--paper);background-size:28px 28px;min-width:0}.page:first-child{border-right:1px solid var(--line)}.page-no{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);font:12px Arial,sans-serif;color:#aaa094}.label{display:inline-block;background:var(--blush);color:white;padding:7px 16px;transform:rotate(-2deg);font:800 10px Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase}.script{font-family:'Brush Script MT','Segoe Script',cursive;font-size:clamp(38px,6vw,60px);line-height:1;color:#6f7f68;margin:24px 0 12px;font-weight:500}.copy{font-size:17px;line-height:1.75;color:#6e5d55}.datecard{position:relative;margin:38px auto 0;width:min(330px,90%);background:#f6eadb;border:1px solid #ead7bd;padding:25px 18px;text-align:center;transform:rotate(2deg);box-shadow:0 8px 18px rgba(80,60,45,.11)}.datecard:before{content:'';position:absolute;width:90px;height:25px;top:-14px;left:50%;transform:translateX(-50%) rotate(-3deg);background:rgba(213,190,151,.6)}.datecard b{display:block;font-size:30px;color:#6f7f68;margin:8px}.datecard span{font:800 10px Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#a08361}.polaroid{position:relative;width:min(355px,92%);margin:24px auto;background:#fff;padding:12px 12px 34px;box-shadow:0 10px 24px rgba(74,57,43,.17);transform:rotate(-2deg)}.polaroid:before{content:'';position:absolute;width:74px;height:22px;top:-11px;left:50%;transform:translateX(-50%) rotate(2deg);background:rgba(215,193,157,.7)}.photo{width:100%;aspect-ratio:1/1;object-fit:cover;background:linear-gradient(145deg,#ead8cf,#adb9a4);display:block}.photo-placeholder{width:100%;aspect-ratio:1/1;background:linear-gradient(145deg,#ead8cf,#adb9a4);display:grid;place-items:center;font-size:72px;color:#fff}.caption{text-align:center;margin-top:12px;font-family:'Brush Script MT','Segoe Script',cursive;font-size:22px;color:#6e5d55}.photo-booth-link{display:block;text-align:center;text-decoration:none;margin-top:14px;border-radius:9px;padding:14px;background:#6f7f68;color:white;font:850 14px Arial,sans-serif}.blank{display:grid;place-items:center;text-align:center;min-height:520px}.blank-box{width:min(350px,92%);padding:30px 22px;border:1px dashed #ccbbaa;background:#fffaf4}.blank .heart{font-size:50px;color:var(--blush)}.blank h3{font-family:'Brush Script MT','Segoe Script',cursive;font-size:34px;color:#6f7f68;margin:8px 0}.blank p{font:14px/1.65 Arial,sans-serif;color:var(--muted)}
+.controls{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:16px 0 0}.controls button,.controls a{border:0;border-radius:999px;min-height:48px;padding:13px 18px;font:850 14px Arial,sans-serif;text-decoration:none;cursor:pointer}.prev,.next{background:#f7efe5;color:var(--brown)}.add{background:var(--sage);color:white}.finish{background:var(--blush);color:white}.booth{background:#6f7f68;color:white}.close{background:#efe2d5;color:var(--brown)}.page-indicator{min-width:110px;text-align:center;font:800 12px Arial,sans-serif;color:#73645b}.status{text-align:center;min-height:22px;margin-top:9px;font:700 12px Arial,sans-serif;color:#66715e}
+@media(max-width:760px){.stage{padding:8px}.cover{max-height:none;min-height:82vh}.book{padding:7px;border-radius:18px}.spread{grid-template-columns:1fr;min-height:auto}.spread:after{display:none}.page{min-height:650px;padding:34px 22px 50px}.page:first-child{border-right:0}.page.second{display:none}.spread.show-second .page:first-child{display:none}.spread.show-second .page.second{display:block}.page-no{display:none}.controls{display:grid;grid-template-columns:1fr 1fr}.controls button,.controls a{width:100%;text-align:center}.page-indicator{grid-column:1/-1;order:-1}}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="topbar">
-    <div class="top-left">
-      <a class="btn" href="../photo-booth.html">📷 Photo Booth</a>
-      <button class="btn" type="button" onclick="closeScrapbook()">📖 Close Scrapbook</button>
+<div class="stage">
+  <section id="cover" class="cover">
+    <div class="cover-inner">
+      <div class="eyebrow">Digital Wedding Scrapbook</div>
+      <h1>Danley <span class="amp">&</span> Maria</h1>
+      <p>A collection of little moments from our forever day</p>
+      <div class="eyebrow">August 28, 2026</div>
+      <button class="open" id="openBtn">Open the Scrapbook ♡</button>
     </div>
-    <div class="top-right">
-      <button class="btn sage" type="button" onclick="addPage()">＋ Add Page</button>
-      <button id="finishBtn" class="btn blush" type="button" onclick="finishPages()">✓ Finish Pages</button>
+  </section>
+
+  <section id="scrapbook" class="scrapbook" aria-live="polite">
+    <div class="book"><div id="spread" class="spread"></div></div>
+    <div class="controls">
+      <button class="prev" id="prevBtn">← Previous</button>
+      <span class="page-indicator" id="indicator"></span>
+      <button class="next" id="nextBtn">Next →</button>
+      <button class="add" id="addBtn">＋ Add Page</button>
+      <button class="finish" id="finishBtn">✓ Finish Pages</button>
+      <a class="booth" href="../photo-booth.html">📷 Photo Booth</a>
+      <button class="close" id="closeBtn">Close Scrapbook</button>
     </div>
-  </div>
-
-  <header class="masthead">
-    <div class="title">DIGITAL SCRAPBOOK</div>
-    <div class="names">Danley & Maria</div>
-    <div class="date">AUGUST 28, 2026</div>
-    <div class="sprig">❧ ♡ ❧</div>
-  </header>
-
-  <div class="layout">
-    <div>
-      <section class="coverbook">
-        <span class="corner c1"></span><span class="corner c2"></span>
-        <div>
-          <h2>DIGITAL SCRAPBOOK</h2>
-          <div class="heart">♡</div>
-          <div class="script">Danley & Maria</div>
-          <div class="coverdate">AUGUST 28, 2026</div>
-          <div class="floral">❀ ❧ ❀</div>
-        </div>
-      </section>
-      <div class="coverlabel"><span class="pill">COVER</span></div>
-    </div>
-
-    <div>
-      <section class="spread">
-        <article class="page welcome">
-          <div>
-            <h3>Welcome</h3>
-            <div style="color:var(--blush)">— ♡ —</div>
-            <p>Thank you for being part of our special day and for the beautiful memories.</p>
-            <div class="floral">❀ ❧ ❀</div>
-            <div style="font-family:'Brush Script MT','Segoe Script',cursive;font-size:22px;color:#9e654e">Danley & Maria</div>
-          </div>
-        </article>
-        <article class="page">
-          <div class="polaroid"><div class="photo-placeholder">Wedding photo<br>will appear here</div><div class="caption">Our forever day ♡</div></div>
-        </article>
-      </section>
-      <div class="coverlabel"><span class="pill">PAGES 1–2 • WELCOME</span></div>
-    </div>
-  </div>
-
-  <div class="section section-grid">
-    <div>
-      <section class="spread boothspread">
-        <article class="page boothcopy"><div><h3>Photo Booth</h3><div style="color:var(--blush)">— ♡ —</div><p>Strike a pose and save your memory!</p><div class="camera-icon">📷</div><p><a class="btn" href="../photo-booth.html">Open Photo Booth</a></p></div></article>
-        <article class="page"><div class="polaroid"><div class="strip"><div>♡</div><div>♡</div><div>♡</div><div>♡</div></div><div class="caption">Wedding fun</div></div></article>
-      </section>
-      <div class="coverlabel"><span class="pill">PAGES 3–4 • PHOTO BOOTH</span></div>
-    </div>
-
-    <div>
-      <section class="spread memspread"><article class="page" style="grid-column:1/-1"><div class="memory-grid" id="photoGrid"></div></article></section>
-      <div class="coverlabel"><span class="pill">PAGES 5–6 • MEMORIES</span></div>
-    </div>
-  </div>
-
-  <div id="extraPages" class="extra"></div>
-
-  <div class="save-note">♡ Add pages anytime using <b>＋ Add Page</b>. When you're done, click <b>✓ Finish Pages</b>. Your added page setup is saved on this device/browser.</div>
-  <div class="page-tabs"><div class="page-tabs-title">SCRAPBOOK PAGES</div><div id="tabs" class="tabs"></div></div>
-  <div id="status" class="status"></div>
+    <div id="status" class="status"></div>
+  </section>
 </div>
 <script src="photos.js"></script>
 <script>
-const photos=Array.isArray(window.WEDDING_PHOTOS)?window.WEDDING_PHOTOS:[];
-const photoGrid=document.getElementById('photoGrid');
-const extraPages=document.getElementById('extraPages');
-const tabs=document.getElementById('tabs');
-const statusEl=document.getElementById('status');
-const finishBtn=document.getElementById('finishBtn');
-const PAGE_KEY='dm_scrapbook_extra_pages_v2';
-const FINISH_KEY='dm_scrapbook_finished_v2';
-let extraCount=Math.max(0,parseInt(localStorage.getItem(PAGE_KEY)||'0',10)||0);
+const PHOTO_LIST=Array.isArray(window.WEDDING_PHOTOS)?window.WEDDING_PHOTOS:[];
+const PAGE_KEY='dm_real_scrapbook_extra_pages_v1';
+const FINISH_KEY='dm_real_scrapbook_finished_v1';
+let extra=Math.max(0,parseInt(localStorage.getItem(PAGE_KEY)||'0',10)||0);
 let finished=localStorage.getItem(FINISH_KEY)==='1';
+let spreadIndex=0;
+const cover=document.getElementById('cover'),book=document.getElementById('scrapbook'),spread=document.getElementById('spread'),indicator=document.getElementById('indicator'),status=document.getElementById('status');
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-function renderPhotos(){
-  if(!photos.length){photoGrid.innerHTML='<div class="empty-extra" style="grid-column:1/-1"><b>Wedding memories will appear here.</b><br><br>Danley and Maria can choose their favorite photos for the scrapbook after the wedding.</div>';return}
-  photoGrid.innerHTML=photos.slice(0,4).map((p,i)=>`<article class="memory-card"><a href="${esc(p.src)}" target="_blank" rel="noopener"><img src="${esc(p.src)}" alt="Wedding memory ${i+1}"></a><small>${esc(p.caption||'A beautiful memory ♡')}</small></article>`).join('');
+function pageWrap(inner,n,second=false){return `<article class="page${second?' second':''}">${inner}<div class="page-no">${String(n).padStart(2,'0')}</div></article>`}
+function introPages(){return [
+  pageWrap(`<span class="label">Welcome</span><h2 class="script">The day we said “I do”</h2><p class="copy">This scrapbook is our keepsake for the smiles, happy tears, candid moments and memories we want to remember long after the wedding day.</p><div class="datecard"><span>Save the date</span><b>28 • 08 • 2026</b><span>Danley & Maria</span></div>`,1),
+  pageWrap(`<span class="label">Photo Booth</span><div class="polaroid"><div class="photo-placeholder">♡</div><div class="caption">Make a memory</div><a class="photo-booth-link" href="../photo-booth.html">Open Wedding Photo Booth</a></div>`,2,true)
+]}
+function photoPages(){
+  const out=[];
+  if(!PHOTO_LIST.length){out.push(pageWrap(`<div class="blank"><div class="blank-box"><div class="heart">♡</div><h3>Waiting for memories</h3><p>Danley and Maria will place their favorite wedding photos here.</p></div></div>`,3));return out}
+  PHOTO_LIST.forEach((p,i)=>out.push(pageWrap(`<span class="label">Wedding Memory</span><div class="polaroid"><img class="photo" src="${esc(p.src)}" alt="Wedding memory"><div class="caption">${esc(p.caption||'A beautiful memory ♡')}</div></div>`,i+3)));
+  return out
 }
-function makeExtraSpread(n){
-  const start=7+(n*2);
-  return `<div><section class="spread"><article class="page"><div class="polaroid"><div class="photo-placeholder">Add a favorite<br>wedding photo</div><div class="caption">A new memory ♡</div></div></article><article class="page"><div class="polaroid"><div class="photo-placeholder">Add another<br>special moment</div><div class="caption">Together forever</div></div></article></section><div class="coverlabel"><span class="pill">PAGES ${start}–${start+1} • MEMORIES ${n+2}</span></div></div>`;
-}
-function renderExtra(){extraPages.innerHTML=Array.from({length:extraCount},(_,i)=>makeExtraSpread(i)).join('');renderTabs();updateFinish()}
-function renderTabs(){const base=['1–2','3–4','5–6'];const more=Array.from({length:extraCount},(_,i)=>`${7+i*2}–${8+i*2}`);tabs.innerHTML=[...base,...more].map(x=>`<button class="tab" type="button">${x}</button>`).join('')+'<button class="tab add" type="button" onclick="addPage()">＋</button>'}
-function addPage(){extraCount++;finished=false;localStorage.setItem(PAGE_KEY,String(extraCount));localStorage.setItem(FINISH_KEY,'0');renderExtra();statusEl.textContent='A new two-page scrapbook spread was added.';setTimeout(()=>{extraPages.lastElementChild?.scrollIntoView({behavior:'smooth',block:'start'})},60)}
-function finishPages(){finished=true;localStorage.setItem(PAGE_KEY,String(extraCount));localStorage.setItem(FINISH_KEY,'1');updateFinish();statusEl.textContent='✓ Pages finished and saved on this device.'}
-function updateFinish(){finishBtn.textContent=finished?'✓ Pages Finished':'✓ Finish Pages';finishBtn.style.opacity=finished?'.75':'1'}
-function closeScrapbook(){window.scrollTo({top:0,behavior:'smooth'});statusEl.textContent='Scrapbook closed. Your page setup stays saved on this device.'}
-renderPhotos();renderExtra();
+function blankPages(start){const out=[];for(let i=0;i<extra;i++){const n=start+i;out.push(pageWrap(`<div class="blank"><div class="blank-box"><div class="heart">♡</div><h3>New scrapbook page</h3><p>This page is ready for another selected wedding memory.</p></div></div>`,n))}return out}
+function allPages(){const pages=introPages().concat(photoPages());return pages.concat(blankPages(pages.length+1))}
+function spreads(){const pages=allPages(),out=[];for(let i=0;i<pages.length;i+=2)out.push([pages[i],pages[i+1]||pageWrap(`<div class="blank"><div class="blank-box"><div class="heart">❦</div><h3>End of this spread</h3></div></div>`,i+2,true)]);return out}
+function render(){const s=spreads();spreadIndex=Math.max(0,Math.min(spreadIndex,s.length-1));spread.innerHTML=s[spreadIndex][0]+s[spreadIndex][1];spread.classList.remove('show-second');indicator.textContent=`Pages ${spreadIndex*2+1}–${spreadIndex*2+2} of ${allPages().length}`;document.getElementById('prevBtn').disabled=spreadIndex===0;document.getElementById('nextBtn').disabled=spreadIndex===s.length-1;document.getElementById('finishBtn').textContent=finished?'✓ Pages Finished':'✓ Finish Pages';status.textContent=finished?'Saved on this device.':''}
+function openBook(){cover.style.display='none';book.classList.add('show');render();window.scrollTo({top:0,behavior:'smooth'})}
+function closeBook(){book.classList.remove('show');cover.style.display='flex';window.scrollTo({top:0,behavior:'smooth'})}
+document.getElementById('openBtn').addEventListener('click',openBook);document.getElementById('closeBtn').addEventListener('click',closeBook);
+document.getElementById('prevBtn').addEventListener('click',()=>{if(innerWidth<=760&&spread.classList.contains('show-second')){spread.classList.remove('show-second');return}if(spreadIndex>0){spreadIndex--;render();if(innerWidth<=760)spread.classList.add('show-second')}});
+document.getElementById('nextBtn').addEventListener('click',()=>{if(innerWidth<=760&&!spread.classList.contains('show-second')){spread.classList.add('show-second');return}if(spreadIndex<spreads().length-1){spreadIndex++;render()}});
+document.getElementById('addBtn').addEventListener('click',()=>{extra++;finished=false;localStorage.setItem(PAGE_KEY,String(extra));localStorage.removeItem(FINISH_KEY);spreadIndex=spreads().length-1;render();status.textContent='A new scrapbook page was added.'});
+document.getElementById('finishBtn').addEventListener('click',()=>{finished=true;localStorage.setItem(FINISH_KEY,'1');render();status.textContent='Pages finished and saved on this device.'});
 </script>
 </body>
 </html>
