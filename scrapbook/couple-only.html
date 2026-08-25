@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="theme-color" content="#f4eee5">
+<title>Danley & Maria — Private Scrapbook</title>
+<style>
+:root{--ivory:#fffaf3;--sage:#65725d;--sage2:#87947d;--blush:#d8aaa2;--ink:#59463d;--muted:#8b776d;--line:#e6d8c6;--danger:#b65e5a}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Georgia,'Times New Roman',serif;background:radial-gradient(circle at top,#fffdf9,#eee7dd 60%,#ddd3c6);color:var(--ink)}
+body{display:grid;place-items:center;padding:20px}.lock{width:min(480px,94vw);background:var(--ivory);border:1px solid var(--line);border-radius:30px;padding:36px 28px;text-align:center;box-shadow:0 28px 70px rgba(72,55,43,.18)}
+.mark{width:88px;height:88px;border-radius:50%;display:grid;place-items:center;margin:0 auto 18px;background:#edf1e8;color:var(--sage);font-size:38px}.eyebrow{font:800 11px Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#8a745b}.private{display:inline-block;margin-top:12px;padding:7px 12px;border-radius:999px;background:#f3e0de;color:#9d5753;font:850 11px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}.lock h1{font-size:42px;font-weight:500;margin:16px 0 5px}.script{font-family:'Brush Script MT','Segoe Script',cursive;color:var(--blush);font-size:29px;margin-bottom:18px}.lock p{font:14px/1.65 Arial,sans-serif;color:var(--muted);margin:0 0 18px}.pin{width:100%;min-height:60px;border:1px solid #d8c9b8;border-radius:16px;background:#fff;text-align:center;font:800 25px Arial,sans-serif;letter-spacing:.22em;color:var(--ink);outline:none}.pin:focus{border-color:var(--sage2);box-shadow:0 0 0 3px rgba(135,148,125,.15)}.unlock{width:100%;min-height:58px;margin-top:12px;border:0;border-radius:16px;background:var(--sage);color:#fff;font:850 15px Arial,sans-serif;cursor:pointer}.error{min-height:22px;margin-top:10px;color:var(--danger);font:750 13px Arial,sans-serif}.note{margin-top:14px!important;font-size:12px!important}@media(max-width:600px){body{padding:0}.lock{width:100%;min-height:100vh;border-radius:0;display:flex;flex-direction:column;justify-content:center;padding:36px 28px}}
+</style>
+</head>
+<body>
+<main class="lock">
+  <div class="mark">♡</div>
+  <div class="eyebrow">Digital Wedding Scrapbook</div>
+  <div class="private">Private — Danley & Maria Only</div>
+  <h1>Danley & Maria</h1>
+  <div class="script">our little book of forever</div>
+  <p>This scrapbook is for Danley and Maria only. Enter the couple access code to open and edit their wedding memories.</p>
+  <input id="pin" class="pin" type="password" inputmode="numeric" maxlength="6" autocomplete="off" placeholder="••••••" aria-label="Couple access code">
+  <button id="unlock" class="unlock">Unlock Private Scrapbook</button>
+  <div id="error" class="error"></div>
+  <p class="note">Access is remembered on this phone/browser after a successful unlock.</p>
+</main>
+<script>
+const EXPECTED='d186799dfb52e8d4cfe0b4722d014024f64f13c658a822e731bf4c94969bc34d';
+const ACCESS_KEY='dm_private_couple_access_v1';
+async function hash(v){const b=new TextEncoder().encode(v);const d=await crypto.subtle.digest('SHA-256',b);return [...new Uint8Array(d)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+async function go(){const v=document.getElementById('pin').value.trim(),e=document.getElementById('error');if(v.length!==6){e.textContent='Enter the 6-digit couple access code.';return}if(await hash(v)===EXPECTED){localStorage.setItem(ACCESS_KEY,'1');location.replace('private-couple.html?v=20260825-1616')}else{e.textContent='Incorrect access code.';document.getElementById('pin').select()}}
+document.getElementById('unlock').addEventListener('click',go);document.getElementById('pin').addEventListener('keydown',e=>{if(e.key==='Enter')go()});
+</script>
+</body>
+</html>
